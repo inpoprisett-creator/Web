@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Admin Panel TKJ-1</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #111;
+        color: #fff;
+        padding: 20px;
+    }
+    .box {
+        background: #1a1a1a;
+        padding: 20px;
+        border-radius: 10px;
+        max-width: 500px;
+        margin: auto;
+        box-shadow: 0 0 15px rgba(0,0,0,0.4);
+    }
+    h2 {
+        text-align: center;
+    }
+    .hidden {
+        display: none;
+    }
+    .error {
+        text-align: center;
+        margin-top: 35px;
+        color: #ff4444;
+        font-size: 18px;
+    }
+</style>
+</head>
+
+<body>
+
+<div id="adminBox" class="box hidden">
+    <h2>Admin Panel TKJ-1 🔧</h2>
+    <p>Selamat datang, Admin. Silakan pilih menu:</p>
+
+    <ul>
+        <li><a href="#">➤ Edit Jadwal</a></li>
+        <li><a href="#">➤ Update Foto</a></li>
+        <li><a href="#">➤ Edit Pengurus</a></li>
+        <li><a href="#">➤ Edit Musik</a></li>
+        <li><a href="#">➤ Maintenance Mode</a></li>
+    </ul>
+
+    <p style="margin-top:20px; font-size:12px; opacity:0.7;">
+        Panel ini berjalan lokal (tanpa backend).  
+        Untuk fitur lengkap, nanti bisa ditambah Google Script/AJAX.
+    </p>
+</div>
+
+<div id="errorBox" class="error hidden">
+    ❌ Akses ditolak  
+    <br>Key salah atau tidak ada.
+</div>
+
+<script>
+// ================
+// SISTEM KUNCI
+// ================
+const urlParams = new URLSearchParams(window.location.search);
+const key = urlParams.get("key");
+
+// ganti key sesuai keinginanmu
+const ADMIN_KEY = "ndraganteng";
+
+if (key === ADMIN_KEY) {
+    document.getElementById("adminBox").classList.remove("hidden");
+} else {
+    document.getElementById("errorBox").classList.remove("hidden");
+}
+</script>
+
+</body>
+</html>
