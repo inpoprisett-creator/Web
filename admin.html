@@ -73,7 +73,20 @@ if (key === ADMIN_KEY) {
     document.getElementById("errorBox").classList.remove("hidden");
 }
 </script>
+!-- SCRIPT API GOOGLE SHEETS -->
+<script>
+const API_URL = "https://script.google.com/macros/s/AKfycbzYR-pF51COl8Sl52WfL85sTDqUpiTLfvi6kyP-TJrPejDVqaMgwXop0qRMGIP_VaUZBQ/exec";  // letakkan URL API di sini
 
+// Coba ambil data jadwal (test)
+async function testGet() {
+  const res = await fetch(API_URL + "?action=getJadwal");
+  const data = await res.json();
+  console.log("Data dari Sheets:", data);
+}
+
+testGet(); // akan muncul di console browser
+</script>
 </body>
 
 </html>
+
